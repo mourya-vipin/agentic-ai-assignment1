@@ -1,21 +1,16 @@
-"""Assignment 1, Part B: the grounded success check. This file is yours.
+"""Assignment 1, Part B: the grounded success check, used for every way.
 
-Write it once and use it for every way. The checker calls it with this
-exact signature, including on planted runs designed to catch a check that
-trusts the agent:
-
-    check(tracker, run_id, issue_number, answer) -> bool
-
-    tracker       harness.tracker.Tracker; tracker.comments(run_id=..., issue=...)
-    run_id        the run being judged
-    issue_number  the issue it worked on
-    answer        {"label": ..., "file": ...} from fixtures/answers.yaml
-
-Success is read from the tracker, never from anything the agent said. Use
-harness.formats.parse_triage_comment and normalize_path, so that your check and
-the course checker read comments the same way.
+Success is read from the tracker, never from anything the agent said: a run passes
+when exactly one comment carries its run_id on its issue, and that comment's label
+and file both match the known answer.
 """
+
+from harness.formats import normalize_path, parse_triage_comment
 
 
 def check(tracker, run_id: str, issue_number: int, answer: dict) -> bool:
-    raise NotImplementedError("Assignment 1 Part B: the grounded check")
+    comments = tracker.comments(run_id=run_id, issue=issue_number)
+    if len(comments) != 1:
+        return False
+    label, file = parse_triage_comment(comments[0]["body"])
+    return label == str(answer["label"]).lower() and file == normalize_path(answer["file"])

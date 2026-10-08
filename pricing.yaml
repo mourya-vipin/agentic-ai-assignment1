@@ -33,4 +33,6 @@ models:
   claude-opus-4-8:   {input: 5.00, output: 25.00, cache_write_5m: 6.25, cache_write_1h: 10.00, cache_read: 0.50}   # refusal fallback target
   claude-sonnet-5:   {input: 2.00, output: 10.00, cache_write_5m: 2.50, cache_write_1h: 4.00,  cache_read: 0.20}
   claude-haiku-4-5:  {input: 1.00, output: 5.00,  cache_write_5m: 1.25, cache_write_1h: 2.00,  cache_read: 0.10}
+  # Gemini, paid-tier rates (free tier used for the runs; price as if paid). Read 2026-10-07.
+  gemini-3.5-flash-lite: {input: 0.30, output: 2.50, cache_read: 0.03, source: "https://ai.google.dev/gemini-api/docs/pricing", read: 2026-10-07}
   never-stops:       {input: 0.00, output: 0.00,  cache_write_5m: 0.00, cache_write_1h: 0.00,  cache_read: 0.00}   # the scripted model; free

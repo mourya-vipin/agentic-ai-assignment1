@@ -1,10 +1,9 @@
-# Assignment 1, Part A: your loop's three bounds. Pick each value and say why, in one
-# line, next to it. Framework defaults are no guide (Week 1, slide 18): they
-# measure different units and they move. Treat the bound as yours to set.
-#
-# max_tokens must sit below the harness ceiling in settings.yaml
-# (session_token_ceiling), so that your loop, not the harness, ends the run.
+# Assignment 1, Part A: the loop's three bounds, each with its reason.
+# Worst case at the step limit: N*F + A*N*(N-1)/2, estimated before any run with
+# F ~ 900 (system prompt ~450 + three tool definitions ~250 + first message) and
+# A ~ 450 (a tool call plus a search_repo result of up to 10 lines):
+#   12*900 + 450*66 = 40,500 prompt tokens, so the step limit binds long before the token budget.
 
-max_steps: 0        # why:
-max_tokens: 0       # why:
-wall_clock_s: 0     # why:
+max_steps: 12       # why: the task needs read, 2-4 searches, post = ~6 calls; 12 is 2x that, and the worst case grows with N^2
+max_tokens: 80000   # why: ~2x the 12-step worst case (~41k prompt + output); a backstop well under the 400k harness ceiling
+wall_clock_s: 300   # why: 12 calls at a few seconds each is ~1 min; 300s leaves room for free-tier rate-limit waits
