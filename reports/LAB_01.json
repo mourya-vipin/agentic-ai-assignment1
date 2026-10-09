@@ -12,9 +12,9 @@
   },
   "worst_case": {
     "F": 569.0,
-    "A": 144.3,
+    "A": 144.1,
     "N": 12,
-    "cumulative_prompt_tokens": 16354
+    "cumulative_prompt_tokens": 16336
   },
   "results": {
     "direct": {
@@ -77,51 +77,51 @@
       "sweep_min": 3,
       "sweep_max": 3,
       "all_ten": 3,
-      "mean_prompt_tokens": 6186.466666666666,
-      "mean_output_tokens": 106.26666666666667,
+      "mean_prompt_tokens": 6200.366666666667,
+      "mean_output_tokens": 106.28333333333333,
       "mean_cached_tokens": 0.0,
-      "p50_latency_s": 21.701,
+      "p50_latency_s": 21.496,
       "p95_latency_s": 89.765,
-      "mean_cost_usd": 0.0021216066666666666,
+      "mean_cost_usd": 0.0021258183333333334,
       "mean_tool_calls": 5.183333333333334,
       "max_tool_calls": 12
     },
     "hybrid": {
-      "runs": null,
-      "passes": null,
+      "runs": 60,
+      "passes": 32,
       "per_issue": {
-        "4201": null,
-        "4202": null,
-        "4203": null,
-        "4204": null,
-        "4205": null,
-        "4206": null
+        "4201": 10,
+        "4202": 0,
+        "4203": 9,
+        "4204": 3,
+        "4205": 10,
+        "4206": 0
       },
-      "sweep_min": null,
-      "sweep_max": null,
-      "all_ten": null,
-      "mean_prompt_tokens": null,
-      "mean_output_tokens": null,
-      "mean_cached_tokens": null,
-      "p50_latency_s": null,
-      "p95_latency_s": null,
-      "mean_cost_usd": null,
-      "mean_tool_calls": null,
-      "max_tool_calls": null
+      "sweep_min": 2,
+      "sweep_max": 4,
+      "all_ten": 2,
+      "mean_prompt_tokens": 2128.45,
+      "mean_output_tokens": 36.2,
+      "mean_cached_tokens": 0.0,
+      "p50_latency_s": 26.318,
+      "p95_latency_s": 142.207,
+      "mean_cost_usd": 0.000729035,
+      "mean_tool_calls": 6.6,
+      "max_tool_calls": 12
     }
   },
   "analysis": {
-    "ratio_agent_over_direct_tokens": 5.696413753564369,
-    "m_agent_over_workflow_cost": 4.972845853044929,
+    "ratio_agent_over_direct_tokens": 5.709011632292814,
+    "m_agent_over_workflow_cost": 4.982717602340781,
     "f": 0.0,
     "blended_cost": 0.0004266383333333333,
-    "all_agent_cost": 0.0021216066666666666,
+    "all_agent_cost": 0.0021258183333333334,
     "workflow_cost": 0.0004266383333333333,
     "path_entropy": {
       "distinct_sequences": 10,
       "top3_share": 0.6333333333333333
     },
-    "verdict": null,
-    "hybrid_handoffs": null
+    "verdict": "workflow",
+    "hybrid_handoffs": 10
   }
 }

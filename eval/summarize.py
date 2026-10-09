@@ -129,7 +129,7 @@ def main() -> None:
         for seq, n in seqs.most_common(8):
             print(f"  {n:>3} x {' > '.join(seq)}")
     if runs["hybrid"]:
-        a["hybrid_handoffs"] = sum(1 for r in runs["hybrid"] if r["terminal"] != "completed")
+        a["hybrid_handoffs"] = sum(1 for r in runs["hybrid"] if r["terminal"] not in ("completed", "crashed"))
     if "--worst-case" in sys.argv and runs["agent"]:
         F, A = measured_worst_case(runs["agent"])
         N = report["worst_case"]["N"]
